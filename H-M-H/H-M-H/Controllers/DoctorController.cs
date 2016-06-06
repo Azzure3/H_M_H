@@ -27,7 +27,7 @@ namespace H_M_H.Controllers
             }
             catch (Exception e)
             {
-                types = null;
+                types = null; 
             }
             ViewBag.TipTypes = types;
             return View();
@@ -50,7 +50,7 @@ namespace H_M_H.Controllers
            
             String ImageName = "" + currentDate.Month + "_" + currentDate.Day + "_" + currentDate.Year+ "_" + currentDate.Hour + "_" + currentDate.Minute + "_" + currentDate.Second + "_";
             int DrID = int.Parse(Session["DrID"].ToString());
-            ImageName += DrID + ".jpg";
+            ImageName += DrID + ".jpg"; 
             tip.doc_Id = DrID;
             tip.ImageURL = @"~/Content/images/Tip/" + ImageName;
 
