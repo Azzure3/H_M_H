@@ -1,0 +1,362 @@
+﻿@{
+    Layout = "~/Views/Shared/_PatientLayout.cshtml";
+}
+
+
+<html>
+<head>
+ 
+<!-- CSS
+ ================================================== -->
+    <title>Hamedha Meemorial hospital : Appointment</title>
+
+    <!-- CSS
+         ================================================== -->
+    <!-- Bootstrap css file-->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome css file-->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Default Theme css file -->
+    <link id="switcher" href="~/css/themes/default-theme.css" rel="stylesheet">
+    <!-- Slick slider css file -->
+    <link href="~/css/slick.css" rel="stylesheet">
+    <!-- Photo Swipe Image Gallery -->
+    <link rel='stylesheet prefetch' href="~/css/photoswipe.css">
+    <link rel='stylesheet prefetch' href="~/css/default-skin.css">
+
+    <!-- Main structure css file -->
+    <link href="~/style.css" rel="stylesheet">
+
+    </head>
+
+<body>
+
+@model IEnumerable<Object>
+    @{
+        List<H_M_H.Models.Doctor> doc_list = null;
+        H_M_H.Models.Patient p_ob = null;
+        if (Model.ToList()[0] != null && Model.ToList()[1] != null)
+        {
+            doc_list = Model.ToList()[0] as List<H_M_H.Models.Doctor>;
+            p_ob = Model.ToList()[1] as H_M_H.Models.Patient;
+        }
+    }
+   
+      
+
+
+        <section id="blogArchive">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="blog-breadcrumbs-area">
+                        <div class="container">
+                            <div class="blog-breadcrumbs-left">
+                                <h2>Appointment</h2>
+                            </div>
+                            <div class="blog-breadcrumbs-right">
+                                <ol class="breadcrumb">
+                                    <li>You are here</li>
+                                    <li><a href="/Patient/Index">Home</a></li>
+                                    <li class="active">Appointment</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br><br><br><br>
+        <br>
+        <br>
+        <br><br><br><br>
+
+
+        <script>
+            $(document).ready(function () {
+                $('#Inventroy-datatable').dataTable();
+            });
+        </script>
+        @*<link href="~/css/tables/bootstrap.css" rel="stylesheet" />
+            <link href="~/css/tables/dataTables.bootstrap.css" rel="stylesheet" />
+            <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+            <link href="~/css/tables/custom.css" rel="stylesheet" />
+            <script src="~/js/tables/jquery-1.10.2.js"></script>
+            <script src="~/js/tables/bootstrap.js"></script>
+            <script src="~/js/tables/dataTables.bootstrap.js"></script>
+            <script src="~/js/tables/jquery.dataTables.js"></script>*@
+        <div>
+            <!--Modal AJAX-->
+            <script>
+                function Set_Doctor(arr, id, receive_id) {
+                    alert(arr);
+                    alert(id);
+                    alert(receive_id);
+                    var fl_name = document.getElementById('fl_name').value = arr;
+                    var specific = document.getElementById('specific').value = id;
+                    specific.valueOf(id);
+                    document.getElementById('reciever_Id').value = receive_id;
+                }
+                $(document).ready(function () {
+                    //$(".myModal").hide();
+
+                    //-----Donot touch me
+                    //$("#")
+                    //$(".messrec").hide();
+                    //$("#saveappointment").click(function () {
+
+                    // $(".myModal").hide('slow');
+
+                    //});
+                    //$("#newSuplier").click(function () {
+
+                    //$(".myModal").slideToggle('slow');
+
+                    //});
+                    $('#saveappointment').click(function () {
+
+                        var reciever_Id = $('#reciever_Id').val();
+                        var required_appointment_date = $('#required_appointment_date').val();
+                        var subject = $('#subject').val();
+                        var content = $('#content').val();
+
+                        if (reciever_Id != 0 && required_appointment_date != "" && subject != "" && content != "") {
+                            $('#save').show();
+                            $.post("/Patient/Save_APPointment_Request", { reciever_Id, required_appointment_date, subject, content }, function (data) {
+                                // $.post("/Inventory/AddSupplierToDb?supplier_name=" + supplier_name, { supply_category, contact, company_name, address, supply_start_date }, function (data) {
+                                if (data) {
+                                    $('#result').attr("style", "font-size:large; color:green");
+                                    $('#result').text("Appointment Booked successfully");
+                                }
+                                else {
+                                    $('#result').attr("style", "font-size:large;color:red");
+                                    $('#result').text("Sorry, we got a problem with Your Request. Try again..!");
+                                }
+                            });
+                        }
+                        else {
+                            $('#result').attr("style", "font-size:large;color:red");
+                            $('#result').text("All Fields are required");
+                        }
+
+                    });
+                    $("#messrecbtn").click(function () {
+
+                        $(".messrec").slideToggle('slow');
+
+                    });
+                });
+            </script>
+            <div class="col-md-10">
+                <!-- Advanced Tables -->
+                <div class="panel panel-default">
+                    <div style="font-size:medium;" class="panel-heading btn-primary">
+                        <b>View Doctors</b>
+                    </div>
+                    <div class="panel-body" style="font-size:medium">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="Inventroy-datatable">
+                                <thead style="text-align:center">
+                                    <tr>
+                                        <th>Sr. No</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>User Name</th>
+                                        <th>Gender</th>
+                                        <th>Specification</th>
+                                        <th>Email</th>
+                                        <th>Phone No</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (doc_list != null)
+                                    {
+                                        for (int i = 0; i < doc_list.Count; i++)
+                                        {
+                                            <tr class="odd gradeX">
+                                                <td>@(i + 1)</td>
+                                                <td>@Html.DisplayFor(m => doc_list[i].User.f_Name)</td>
+                                                <td>@Html.DisplayFor(m => doc_list[i].User.l_Name)</td>
+                                                <td>@Html.DisplayFor(m => doc_list[i].User.userName)</td>
+                                                <td>@Html.DisplayFor(m => doc_list[i].User.Gender)</td>
+                                                <td>@Html.DisplayFor(m => doc_list[i].Specification)</td>
+                                                <td>@Html.DisplayFor(m => doc_list[i].User.Email)</td>
+                                                <td>@Html.DisplayFor(m => doc_list[i].User.PhoneNo)</td>
+                                                @{
+                                                    int doc_id = 0;
+                                                }
+                                                <td style="text-align:center">
+                                                    <div class="readmore_area">
+                                                        <a data-toggle="modal" data-target="#myModal" href="#" onclick="Set_Doctor('@doc_list[i].User.f_Name  @doc_list[i].User.l_Name','@doc_list[i].Specification',@doc_list[i].Id)" data-hover="Appoinment"><span>Appoinment</span></a>
+                                                        <!--///////////////////////////////////////////////////////////////////-->
+                                                        <!-- start modal window -->
+                                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="false">&times;</button>
+                                                                        <h4 class="modal-title" id="myModalLabel">Appoinment Details</h4>
+                                                                    </div>
+                                                                    <input hidden type="number" id="reciever_Id" value="" />
+                                                                    <div class="modal-body">
+                                                                        <div class="appointment-area">
+                                                                            <form class="appointment-form" method="post" action="#">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6 col-sm-6">
+                                                                                        <label class="control-label">
+                                                                                            To: <span class="required">*</span>
+                                                                                        </label>
+                                                                                        <input type="text" class="wp-form-control wpcf7-text" id="fl_name" value="" disabled>
+                                                                                    </div>
+                                                                                    <div class="col-md-6 col-sm-6">
+                                                                                        <label class="control-label">
+                                                                                            Type <span class="required">*</span>
+                                                                                        </label>
+                                                                                        <input type="text" class="wp-form-control wpcf7-text" id="specific" value="" disabled>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6 col-sm-6">
+                                                                                        <label class="control-label">
+                                                                                            Full name <span class="required">*</span>
+                                                                                        </label>
+                                                                                        <input type="text" disabled class="wp-form-control wpcf7-text" value="@p_ob.User.f_Name  @p_ob.User.l_Name  ">
+                                                                                    </div>
+                                                                                    <div class="col-md-6 col-sm-6">
+                                                                                        <label class="control-label">
+                                                                                            Appointment Date <span class="required">*</span>
+                                                                                        </label>
+                                                                                        <input id="required_appointment_date" type="date" class="wp-form-control wpcf7-text" name="required_appointment_date" placeholder="dd/mm/yy">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <input type="text" class="wp-form-control wpcf7-text" placeholder="Subject" id="subject" />
+                                                                                    <textarea id="content" class="wp-form-control wpcf7-textarea" cols="30" rows="10" placeholder="What would you like to tell us"></textarea>
+                                                                                </div>
+                                                                                <div id="result"></div>
+                                                                                <button class="wpcf7-submit button--itzel" id="saveappointment" type="submit"><i class="button__icon fa fa-share"></i><span>Book Appointment</span></button>
+                                                                            </form>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /.modal-content -->
+                                                            </div><!-- /.modal-dialog -->
+                                                        </div><!-- /.modal -->
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                        }
+
+                                                    }
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <!--End Advanced Tables -->
+            </div>
+        </div>
+
+
+
+        <!--=========== End Home Blog SECTION ================-->
+        <!--=========== Start Footer SECTION ================-->
+        <footer id="footer">
+            <!-- Start Footer Top -->
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="single-footer-widget">
+                                <div class="section-heading">
+                                    <h2>About Us</h2>
+                                    <div class="line"></div>
+                                </div>
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="single-footer-widget">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="single-footer-widget">
+                                <div class="section-heading">
+                                    <h2>Contact Info</h2>
+                                    <div class="line"></div>
+                                </div>
+                                <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+                                <p>You can conatc us on: </p>
+                                <address class="contact-info">
+                                    <p>
+                                        <span class="fa fa-home"></span>Valencia Housing Society, Block D, Lahore.
+                                    </p>
+                                    <p><span class="fa fa-phone"></span>042-35210676, 35210699</p>
+                                    <p><span class="fa fa-envelope"></span>hameedahmemorialhospital@gmail.com</p>
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            </div>
+            <!-- Start Footer Middle -->
+            <div class="footer-middle">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="footer-copyright">
+                                <p>&copy; Copyright 2016 <a href="index.html">HMH</a></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="footer-social">
+                                <a href="#"><span class="fa fa-facebook"></span></a>
+                                <a href="#"><span class="fa fa-twitter"></span></a>
+                                <a href="#"><span class="fa fa-google-plus"></span></a>
+                                <a href="#"><span class="fa fa-linkedin"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Design & Developed By <a rel="nofollow" href="">Venta Black</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--=========== End Footer SECTION ================-->
+        <!-- jQuery Library  -->
+        <script src="~/js/jquery.js"></script>
+        <!-- Bootstrap default js -->
+        <script src="~/js/bootstrap.min.js"></script>
+        <!-- slick slider -->
+        <script src="~/js/slick.min.js"></script>
+        <script type="text/javascript" src="~/js/modernizr.custom.79639.js"></script>
+        <!-- counter -->
+        <script src="~/js/waypoints.min.js"></script>
+        <script src="~/js/jquery.counterup.min.js"></script>
+        <!-- Doctors hover effect -->
+        <script src="~/js/snap.svg-min.js"></script>
+        <script src="~/js/hovers.js"></script>
+        <!-- Photo Swipe Gallery Slider -->
+        <script src='~/js/photoswipe.min.js'></script>
+        <script src='~/js/photoswipe-ui-default.min.js'></script>
+        <script src="~/js/photoswipe-gallery.js"></script>
+
+        <!-- Custom JS -->
+        <script src="~/js/custom.js"></script>
+
+
+    </body>
+</html>

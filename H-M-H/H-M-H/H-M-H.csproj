@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2254C695-B37D-44E0-9523-6ED199CF2365}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>H_M_H</RootNamespace>
+    <AssemblyName>H-M-H</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Database1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Appointment.cs">
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Appoint_Request.cs">
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Doctor.cs">
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\H-M-H.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>H-M-H.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\H-M-H.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\H-M-H.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>H-M-H.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HealthTip.cs">
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Patient.cs">
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Review.cs">
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service.cs">
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service1.cs">
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ServiecStore.cs">
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipType.cs">
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>H-M-H.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\H-M-H_DataBase.mdf" />
+    <Content Include="App_Data\H-M-H_DataBase_log.ldf">
+      <DependentUpon>H-M-H_DataBase.mdf</DependentUpon>
+    </Content>
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\default-skin.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\layout.css" />
+    <Content Include="css\photoswipe.css" />
+    <Content Include="css\slick.css" />
+    <Content Include="css\tables\bootstrap.css" />
+    <Content Include="css\tables\custom.css" />
+    <Content Include="css\tables\dataTables.bootstrap.css" />
+    <Content Include="css\themes\blue-theme.css" />
+    <Content Include="css\themes\bridge-theme.css" />
+    <Content Include="css\themes\dark-red-theme.css" />
+    <Content Include="css\themes\default-theme.css" />
+    <Content Include="css\themes\green-theme.css" />
+    <Content Include="css\themes\lite-blue-theme.css" />
+    <Content Include="css\themes\orange-theme.css" />
+    <Content Include="css\themes\pink-theme.css" />
+    <Content Include="css\themes\purple-theme.css" />
+    <Content Include="css\themes\red-theme.css" />
+    <Content Include="Database1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Database1.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="images\12.jpg" />
+    <Content Include="images\14.jpg" />
+    <Content Include="images\15.jpg" />
+    <Content Include="images\6.jpg" />
+    <Content Include="images\7.jpg" />
+    <Content Include="images\9.jpg" />
+    <Content Include="images\Chemotherapy%282%29.jpg" />
+    <Content Include="images\Chemotherapy.jpg" />
+    <Content Include="images\Chemotherapy3.jpg" />
+    <Content Include="images\choose-us-img1.jpg" />
+    <Content Include="images\choose-us-img2.jpg" />
+    <Content Include="images\choose-us-img3.jpg" />
+    <Content Include="images\counter-bg2.jpg" />
+    <Content Include="images\customers-inside-pharmacy-shop-18506962.jpg" />
+    <Content Include="images\doctor-1.jpg" />
+    <Content Include="images\doctor-2.jpg" />
+    <Content Include="images\doctor-3.jpg" />
+    <Content Include="images\doctor-4.jpg" />
+    <Content Include="images\doctor-5.jpg" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\Fotolia_5032040_S.jpg" />
+    <Content Include="images\gallery\default-skin.png" />
+    <Content Include="images\gallery\default-skin.svg" />
+    <Content Include="images\gallery\gallery-large-1.jpg" />
+    <Content Include="images\gallery\gallery-large-2.jpg" />
+    <Content Include="images\gallery\gallery-large-3.jpg" />
+    <Content Include="images\gallery\gallery-large-4.jpg" />
+    <Content Include="images\gallery\gallery-large-5.jpg" />
+    <Content Include="images\gallery\gallery-small-1.jpg" />
+    <Content Include="images\gallery\gallery-small-2.jpg" />
+    <Content Include="images\gallery\gallery-small-3.jpg" />
+    <Content Include="images\gallery\gallery-small-4.jpg" />
+    <Content Include="images\gallery\gallery-small-5.jpg" />
+    <Content Include="images\gallery\preloader.gif" />
+    <Content Include="images\health sign.png" />
+    <Content Include="images\Healthcare-Interoperability.jpg" />
+    <Content Include="images\healthcare.jpg" />
+    <Content Include="images\Healthcare.png" />
+    <Content Include="images\healthcloud.jpg" />
+    <Content Include="images\heathcare-automation.jpg" />
+    <Content Include="images\Hospt1.jpg" />
+    <Content Include="images\Hospt2.jpg" />
+    <Content Include="images\Hospt3.jpg" />
+    <Content Include="images\Hospt4.jpg" />
+    <Content Include="images\Hospt5.jpg" />
+    <Content Include="images\Hospt6.jpg" />
+    <Content Include="images\icu.jpg" />
+    <Content Include="images\images%282%29.jpg" />
+    <Content Include="images\images%283%29.jpg" />
+    <Content Include="images\images%284%29.jpg" />
+    <Content Include="images\images%285%29.jpg" />
+    <Content Include="images\images%286%29.jpg" />
+    <Content Include="images\images.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\medical-team-senior-doctors-look-x-ray-22143812.jpg" />
+    <Content Include="images\next_icon.png" />
+    <Content Include="images\next_icon1.png" />
+    <Content Include="images\patients-1.jpg" />
+    <Content Include="images\patients-2.jpg" />
+    <Content Include="images\patients-3.jpg" />
+    <Content Include="images\pharmacist_crop380w.jpg" />
+    <Content Include="images\pharmacy-banner.ashx.jpg" />
+    <Content Include="images\prev_icon.png" />
+    <Content Include="images\senior-doctor.jpg" />
+    <Content Include="images\small-blog-img1.jpg" />
+    <Content Include="images\small-blog-img2.jpg" />
+    <Content Include="images\status.gif" />
+    <Content Include="images\team-next-icon.png" />
+    <Content Include="images\team-prev-icon.png" />
+    <Content Include="images\untitled.jpg" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\custom.js" />
+    <Content Include="js\hovers.js" />
+    <Content Include="js\jquery.counterup.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\js2\bootstrap.js" />
+    <Content Include="js\js2\bootstrap.min.js" />
+    <Content Include="js\js2\contact_me.js" />
+    <Content Include="js\js2\hideshow.js" />
+    <Content Include="js\js2\jqBootstrapValidation.js" />
+    <Content Include="js\js2\jquery-1.5.2.min.js" />
+    <Content Include="js\js2\jquery.equalHeight.js" />
+    <Content Include="js\js2\jquery.js" />
+    <Content Include="js\js2\jquery.tablesorter.min.js" />
+    <Content Include="js\modernizr.custom.79639.js" />
+    <Content Include="js\photoswipe-gallery.js" />
+    <Content Include="js\photoswipe-ui-default.min.js" />
+    <Content Include="js\photoswipe.min.js" />
+    <Content Include="js\slick.min.js" />
+    <Content Include="js\snap.svg-min.js" />
+    <Content Include="js\tables\bootstrap.js" />
+    <Content Include="js\tables\custom.js" />
+    <Content Include="js\tables\dataTables.bootstrap.js" />
+    <Content Include="js\tables\jquery-1.10.2.js" />
+    <Content Include="js\tables\jquery.dataTables.js" />
+    <Content Include="js\waypoints.min.js" />
+    <Content Include="Models\H-M-H.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>H-M-H.edmx</DependentUpon>
+      <LastGenOutput>H-M-H.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\H-M-H.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>H-M-H.edmx</DependentUpon>
+      <LastGenOutput>H-M-H.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="style.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Admin\AddUser.cshtml" />
+    <Content Include="Views\Admin\DeleteUser.cshtml" />
+    <Content Include="Views\Admin\EditUser.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Search.cshtml" />
+    <Content Include="Views\Admin\UpdateItem2.cshtml" />
+    <Content Include="Views\Admin\View1.cshtml" />
+    <Content Include="Views\Admin\ViewAllUsers.cshtml" />
+    <Content Include="Views\Doctor\AddTip.cshtml" />
+    <Content Include="Views\Doctor\Blogs.cshtml" />
+    <Content Include="Views\Doctor\HealthTips.cshtml" />
+    <Content Include="Views\Doctor\Index.cshtml" />
+    <Content Include="Views\Doctor\SearchDoctor.cshtml" />
+    <Content Include="Views\Doctor\View_Patient.cshtml" />
+    <Content Include="Views\Doctor\WriteBlog.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\error404.cshtml" />
+    <Content Include="Views\Home\Features.cshtml" />
+    <Content Include="Views\Home\HealthCare.cshtml" />
+    <Content Include="Views\Home\HealthTips.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Medics.cshtml" />
+    <Content Include="Views\Home\Monitoring.cshtml" />
+    <Content Include="Views\Home\Serve24_7.cshtml" />
+    <Content Include="Views\Home\Special_Doctor.cshtml" />
+    <Content Include="Views\Home\Therapy.cshtml" />
+    <Content Include="Views\Patient\Appointment.cshtml" />
+    <Content Include="Views\Patient\Index.cshtml" />
+    <Content Include="Views\Patient\SearchDoctor.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_DoctorLayout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_PatientLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\bootstrap\" />
+    <Folder Include="Content\images\" />
+    <Folder Include="Content\jquery\" />
+    <Folder Include="Content\themes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <Content Include="EF.Reverse.POCO.Core.ttinclude" />
+    <Content Include="EF.Reverse.POCO.ttinclude" />
+    <EntityDeploy Include="Models\H-M-H.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>H-M-H.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\H-M-H.edmx.diagram">
+      <DependentUpon>H-M-H.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="css\tables\bootstrap.css.map" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Views\Home\ServiceDetails.cshtml" />
+    <None Include="Properties\PublishProfiles\PeopleMedic - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>12113</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:12113/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

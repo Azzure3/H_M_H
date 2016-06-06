@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Appoint_Request">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sender_Id" Type="Int32" Nullable="false" />
+    <Property Name="reciever_Id" Type="Int32" Nullable="false" />
+    <Property Name="send_date" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="response_Date" Type="DateTime" Precision="0" />
+    <Property Name="required_appointment_date" Type="DateTime" Precision="0" />
+    <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Appointment_Request_r" FromRole="Appoint_Request" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_Appointment_Request_s" FromRole="Appoint_Request" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="d_Id" Type="Int32" Nullable="false" />
+    <Property Name="p_Id" Type="Int32" Nullable="false" />
+    <Property Name="appoint_Date" Type="DateTime" Precision="0" />
+    <Property Name="appint_Time" Type="Time" Precision="7" />
+    <NavigationProperty Name="Doctor" Relationship="Self.FK_Appointment_d" FromRole="Appointment" ToRole="Doctor" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK_Appointment_p" FromRole="Appointment" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="u_Id" Type="Int32" Nullable="false" />
+    <Property Name="Specification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Avail_up_Time" Type="Time" Precision="7" />
+    <Property Name="Avail_low_Time" Type="Time" Precision="7" />
+    <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_d" FromRole="Doctor" ToRole="Appointment" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Doctor_d" FromRole="Doctor" ToRole="User" />
+  </EntityType>
+  <EntityType Name="HealthTip">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="doc_Id" Type="Int32" Nullable="false" />
+    <Property Name="tips_Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tips_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tips_Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="u_Id" Type="Int32" Nullable="false" />
+    <Property Name="Disease" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Upload_Report" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_p" FromRole="Patient" ToRole="Appointment" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Patient_p" FromRole="Patient" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sevice_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ServiecStore">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ShortDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TipType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="f_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="l_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Appoint_Request" Relationship="Self.FK_Appointment_Request_r" FromRole="User" ToRole="Appoint_Request" />
+    <NavigationProperty Name="Appoint_Request1" Relationship="Self.FK_Appointment_Request_s" FromRole="User" ToRole="Appoint_Request" />
+    <NavigationProperty Name="Doctors" Relationship="Self.FK_Doctor_d" FromRole="User" ToRole="Doctor" />
+    <NavigationProperty Name="Patients" Relationship="Self.FK_Patient_p" FromRole="User" ToRole="Patient" />
+  </EntityType>
+  <Association Name="FK_Appointment_Request_r">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Appoint_Request" Type="Self.Appoint_Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appoint_Request">
+        <PropertyRef Name="reciever_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Appointment_Request_s">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Appoint_Request" Type="Self.Appoint_Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appoint_Request">
+        <PropertyRef Name="sender_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Appointment_d">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="d_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Appointment_p">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="p_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doctor_d">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Doctor">
+        <PropertyRef Name="u_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patient_p">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Patient">
+        <PropertyRef Name="u_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Appoint_Request" EntityType="Self.Appoint_Request" />
+    <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+    <EntitySet Name="HealthTips" EntityType="Self.HealthTip" />
+    <EntitySet Name="Patients" EntityType="Self.Patient" />
+    <EntitySet Name="Reviews" EntityType="Self.Review" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <EntitySet Name="ServiecStores" EntityType="Self.ServiecStore" />
+    <EntitySet Name="TipTypes" EntityType="Self.TipType" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Appointment_Request_r" Association="Self.FK_Appointment_Request_r">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Appoint_Request" EntitySet="Appoint_Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Appointment_Request_s" Association="Self.FK_Appointment_Request_s">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Appoint_Request" EntitySet="Appoint_Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Appointment_d" Association="Self.FK_Appointment_d">
+      <End Role="Doctor" EntitySet="Doctors" />
+      <End Role="Appointment" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Appointment_p" Association="Self.FK_Appointment_p">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Appointment" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doctor_d" Association="Self.FK_Doctor_d">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Doctor" EntitySet="Doctors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patient_p" Association="Self.FK_Patient_p">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Patient" EntitySet="Patients" />
+    </AssociationSet>
+    <EntitySet Name="Service1" EntityType="Model.Service1" />
+  </EntityContainer>
+  <EntityType Name="Service1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageUrl1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Detail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl3" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="iconClass" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="shortDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

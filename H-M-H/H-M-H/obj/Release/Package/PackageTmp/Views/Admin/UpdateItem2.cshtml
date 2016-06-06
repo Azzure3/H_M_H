@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/css/layout.css" type="text/css" media="screen" />
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/modern-business.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/bootstrap.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update Item</title>
+</head>
+<body>
+    <section id="main" style=" background: url(/Content/images/FinBack.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; ">
+
+
+        <div>
+            <div class="col-lg-6" style="margin-top:30px; margin-left:300px; background-color:cornsilk; width:500px; height:250px; border-radius:10px;">
+                <div class="container" style="font-family:Calibri ; color:blue; margin-top:20px; margin-left:90px;">
+                    <div class="row">
+                        <div class="col-md-offset-0 col-md-3">
+                            <div class="form-login">
+
+                                <form method="post" action="/Admin/SaveEdit2/@Model.DoctorId" style="opacity:0.9">
+                                 
+
+
+                                    Updated Quantity :     <input type="text" name="Quantity" class="form-control input-sm chat-input" value="@Model.Quantity" />
+                                    <br />
+                                    Updated Price : <input type="text" name="Price" class="form-control input-sm chat-input" value="@Model.Price" />
+                                    <br />
+
+                                    <input class="btn btn-success" type="submit" value="Save Changes" />
+                                </form>
+
+                                <h3>@ViewBag.Message</h3>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </section>
+</body>
+</html>

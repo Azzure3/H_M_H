@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Appoint_Request">
+      <EntityTypeMapping TypeName="Model.Appoint_Request">
+        <MappingFragment StoreEntitySet="Appoint_Request">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="sender_Id" ColumnName="sender_Id" />
+          <ScalarProperty Name="reciever_Id" ColumnName="reciever_Id" />
+          <ScalarProperty Name="send_date" ColumnName="send_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="response_Date" ColumnName="response_Date" />
+          <ScalarProperty Name="required_appointment_date" ColumnName="required_appointment_date" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="content" ColumnName="content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Appointments">
+      <EntityTypeMapping TypeName="Model.Appointment">
+        <MappingFragment StoreEntitySet="Appointment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="d_Id" ColumnName="d_Id" />
+          <ScalarProperty Name="p_Id" ColumnName="p_Id" />
+          <ScalarProperty Name="appoint_Date" ColumnName="appoint_Date" />
+          <ScalarProperty Name="appint_Time" ColumnName="appint_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="Model.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="u_Id" ColumnName="u_Id" />
+          <ScalarProperty Name="Specification" ColumnName="Specification" />
+          <ScalarProperty Name="Avail_up_Time" ColumnName="Avail_up_Time" />
+          <ScalarProperty Name="Avail_low_Time" ColumnName="Avail_low_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HealthTips">
+      <EntityTypeMapping TypeName="Model.HealthTip">
+        <MappingFragment StoreEntitySet="HealthTip">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="doc_Id" ColumnName="doc_Id" />
+          <ScalarProperty Name="tips_Type" ColumnName="tips_Type" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="tips_Content" ColumnName="tips_Content" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="tips_Date" ColumnName="tips_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="Model.Patient">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="u_Id" ColumnName="u_Id" />
+          <ScalarProperty Name="Disease" ColumnName="Disease" />
+          <ScalarProperty Name="Upload_Report" ColumnName="Upload_Report" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews">
+      <EntityTypeMapping TypeName="Model.Review">
+        <MappingFragment StoreEntitySet="Reviews">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="img" ColumnName="img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="Model.Service">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Sevice_name" ColumnName="Sevice_name" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiecStores">
+      <EntityTypeMapping TypeName="Model.ServiecStore">
+        <MappingFragment StoreEntitySet="ServiecStore">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ShortDesc" ColumnName="ShortDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipTypes">
+      <EntityTypeMapping TypeName="Model.TipType">
+        <MappingFragment StoreEntitySet="TipType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="l_Name" ColumnName="l_Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service1">
+      <EntityTypeMapping TypeName="Model.Service1">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="shortDesc" ColumnName="shortDesc" />
+          <ScalarProperty Name="iconClass" ColumnName="iconClass" />
+          <ScalarProperty Name="ImageUrl3" ColumnName="ImageUrl3" />
+          <ScalarProperty Name="ImageUrl2" ColumnName="ImageUrl2" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ImageUrl1" ColumnName="ImageUrl1" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
